@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<meta
+    name="description"
+    content="CVFlow - Build your professional CV easily"
+>
+
+<title>CVFlow - CV Builder</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+<!-- Main CSS -->
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="enhancement.css">
+
+
+</head>
+
+<body>
+
+
+
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>CV</span>Flow
+    </div>
+
+    <div class="nav-actions">
+
+        <button
+            type="button"
+            id="saveBtn"
+            class="btn btn-secondary"
+        >
+            Save CV
+        </button>
+
+        <button
+            type="button"
+            id="printBtn"
+            class="btn btn-primary"
+        >
+            Download PDF
+        </button>
+
+    </div>
+
+</header>
+
+
+
+
+<main class="app-container">
+
+    <!-- =================================================
+         LEFT SIDE - EDITOR
+    ================================================== -->
+
+    <section class="editor">
+
+        <!-- PAGE HEADING -->
+
+        <div class="page-heading">
+
+            <p class="eyebrow">
+                CV BUILDER
+            </p>
+
+            <h1>
+                Create your professional CV
+            </h1>
+
+            <p>
+                Fill in your details and see your CV update instantly.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             PERSONAL INFORMATION
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="section-title">
+
+                <div>
+                    <h2>Personal Information</h2>
+
+                    <p>
+                        Basic information about you
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="form-grid">
+
+                <!-- Full Name -->
+
+                <div class="form-group">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        autocomplete="name"
+                        placeholder="e.g. Sandra Chepkoech"
+                    >
+
+                </div>
+
+
+                <!-- Professional Title -->
+
+                <div class="form-group">
+
+                    <label for="jobTitle">
+                        Professional Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="jobTitle"
+                        name="jobTitle"
+                        autocomplete="organization-title"
+                        placeholder="e.g. Software Developer"
+                    >
+
+                </div>
+
+
+                <!-- Email -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        placeholder="you@example.com"
+                    >
+
+                </div>
+
+
+                <!-- Phone -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        autocomplete="tel"
+                        placeholder="+254 700 000 000"
+                    >
+
+                </div>
+
+
+                <!-- Location -->
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        autocomplete="address-level2"
+                        placeholder="Nairobi, Kenya"
+                    >
+
+                </div>
+
+
+                <!-- LinkedIn -->
+
+                <div class="form-group">
+
+                    <label for="linkedin">
+                        LinkedIn
+                    </label>
+
+                    <input
+                        type="url"
+                        id="linkedin"
+                        name="linkedin"
+                        autocomplete="url"
+                        placeholder="https://linkedin.com/in/yourname"
+                    >
+
+                </div>
+
+
+                <!-- GitHub -->
+
+                <div class="form-group">
+
+                    <label for="github">
+                        GitHub
+                    </label>
+
+                    <input
+                        type="url"
+                        id="github"
+                        name="github"
+                        autocomplete="url"
+                        placeholder="https://github.com/yourusername"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PROFESSIONAL SUMMARY
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="section-title">
+
+                <div>
+
+                    <h2>
+                        Professional Summary
+                    </h2>
+
+                    <p>
+                        Introduce yourself to employers
+                    </p>
+
+                </div>
+
+            </div>
+
+            <label for="summary" class="sr-only">
+                Professional Summary
+            </label>
+
+            <textarea
+                id="summary"
+                name="summary"
+                rows="5"
+                placeholder="Write a short professional summary..."
+            ></textarea>
+
+        </div>
+
+
+        <!-- =================================================
+             EDUCATION
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="section-title">
+
+                <div>
+
+                    <h2>
+                        Education
+                    </h2>
+
+                    <p>
+                        Add your educational background
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="add-btn"
+                    id="addEducation"
+                    aria-label="Add education"
+                >
+                    + Add
+                </button>
+
+            </div>
+
+            <div id="educationContainer"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             WORK EXPERIENCE
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="section-title">
+
+                <div>
+
+                    <h2>
+                        Work Experience
+                    </h2>
+
+                    <p>
+                        Show your previous experience
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="add-btn"
+                    id="addExperience"
+                    aria-label="Add work experience"
+                >
+                    + Add
+                </button>
+
+            </div>
+
+            <div id="experienceContainer"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             PROJECTS
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="section-title">
+
+                <div>
+
+                    <h2>
+                        Projects
+                    </h2>
+
+                    <p>
+                        Showcase projects you have built
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="add-btn"
+                    id="addProject"
+                    aria-label="Add project"
+                >
+                    + Add
+                </button>
+
+            </div>
+
+            <div id="projectsContainer"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             SKILLS
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="section-title">
+
+                <div>
+
+                    <h2>
+                        Skills
+                    </h2>
+
+                    <p>
+                        Add your technical and professional skills
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="skill-input-row">
+
+                <label for="skillInput" class="sr-only">
+                    Skill
+                </label>
+
+                <input
+                    type="text"
+                    id="skillInput"
+                    name="skill"
+                    placeholder="e.g. JavaScript"
+                >
+
+                <button
+                    type="button"
+                    id="addSkill"
+                    class="btn btn-primary"
+                >
+                    Add Skill
+                </button>
+
+            </div>
+
+            <div
+                id="skillsContainer"
+                class="skills-list"
+            ></div>
+
+        </div>
+
+
+        <!-- =================================================
+             REFEREES
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="section-title">
+
+                <div>
+
+                    <h2>
+                        Referees
+                    </h2>
+
+                    <p>
+                        Add professional references
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="add-btn"
+                    id="addReferee"
+                    aria-label="Add referee"
+                >
+                    + Add
+                </button>
+
+            </div>
+
+            <div id="refereesContainer"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             BOTTOM ACTIONS
+        ================================================== -->
+
+        <div class="bottom-actions">
+
+            <button
+                type="button"
+                id="clearBtn"
+                class="clear-btn"
+            >
+                Clear CV
+            </button>
+
+            <button
+                type="button"
+                id="printBtnBottom"
+                class="btn btn-primary"
+            >
+                Download / Print CV
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RIGHT SIDE - LIVE PREVIEW
+    ====================================================== -->
+
+    <section class="preview-section">
+
+        <!-- Preview Heading -->
+
+        <div class="preview-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    LIVE PREVIEW
+                </p>
+
+                <h2>
+                    Your CV
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CV PAPER
+        ================================================== -->
+
+        <div
+            id="cvPreview"
+            class="cv-paper"
+        >
+
+            <!-- CV HEADER -->
+
+            <div class="cv-header">
+
+                <!-- Name & Title -->
+
+                <div>
+
+                    <h1 id="previewName">
+                        Your Name
+                    </h1>
+
+                    <h3 id="previewJobTitle">
+                        Software Developer
+                    </h3>
+
+                </div>
+
+
+                <!-- Contact Information -->
+
+                <div class="contact-info">
+
+                    <div
+                        class="contact-item"
+                        id="previewEmail"
+                    >
+                        email@example.com
+                    </div>
+
+                    <div
+                        class="contact-item"
+                        id="previewPhone"
+                    >
+                        +254 700 000 000
+                    </div>
+
+                    <div
+                        class="contact-item"
+                        id="previewLocation"
+                    >
+                        Nairobi, Kenya
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SOCIAL LINKS
+            ================================================== -->
+
+            <div class="cv-links">
+
+                <a
+                    id="previewLinkedin"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    LinkedIn
+                </a>
+
+                <a
+                    id="previewGithub"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    GitHub
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROFILE
+            ================================================== -->
+
+            <section
+                class="cv-section"
+                id="summarySection"
+            >
+
+                <h2>
+                    PROFILE
+                </h2>
+
+                <p id="previewSummary">
+                    Your professional summary will appear here.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 EDUCATION
+            ================================================== -->
+
+            <section
+                class="cv-section"
+                id="educationSection"
+            >
+
+                <h2>
+                    EDUCATION
+                </h2>
+
+                <div id="previewEducation"></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 EXPERIENCE
+            ================================================== -->
+
+            <section
+                class="cv-section"
+                id="experienceSection"
+            >
+
+                <h2>
+                    EXPERIENCE
+                </h2>
+
+                <div id="previewExperience"></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROJECTS
+            ================================================== -->
+
+            <section
+                class="cv-section"
+                id="projectsSection"
+            >
+
+                <h2>
+                    PROJECTS
+                </h2>
+
+                <div id="previewProjects"></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SKILLS
+            ================================================== -->
+
+            <section
+                class="cv-section"
+                id="skillsSection"
+            >
+
+                <h2>
+                    SKILLS
+                </h2>
+
+                <div
+                    id="previewSkills"
+                    class="preview-skills"
+                ></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 REFEREES
+            ================================================== -->
+
+            <section
+                class="cv-section"
+                id="previewRefereesSection"
+            >
+
+                <h2>
+                    REFEREES
+                </h2>
+
+                <div id="previewReferees"></div>
+
+            </section>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+
+<div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+>
+    CV saved successfully!
+</div>
+
+
+
+
+<script src="script.js"></script>
+<script src="enhancement.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+/* =========================================================
+   CVFLOW ENHANCEMENTS
+   Load AFTER style.css
+   ========================================================= */
+
+/* ---------- Save status (navbar) ---------- */
+.save-status {
+    font-size: 13px;
+    color: var(--muted);
+    margin-right: 6px;
+}
+
+/* ---------- Design card ---------- */
+.design-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.design-row + .design-row { margin-top: 16px; }
+
+.design-row > span {
+    font-size: 13px;
+    font-weight: 600;
+    min-width: 70px;
+}
+
+.tpl-btn {
+    border: 1px solid var(--border-dark);
+    background: var(--white);
+    color: var(--text);
+    padding: 8px 14px;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.tpl-btn[aria-pressed="true"] {
+    border-color: var(--primary);
+    background: var(--light-blue);
+    color: var(--primary-dark);
+}
+
+.swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1px var(--border-dark);
+    cursor: pointer;
+    padding: 0;
+}
+
+.swatch[aria-pressed="true"] {
+    box-shadow: 0 0 0 2px var(--text);
+}
+
+#accentCustom {
+    width: 34px;
+    height: 34px;
+    padding: 2px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ---------- Keep line breaks typed by the user ---------- */
+#previewSummary,
+.cv-entry-description {
+    white-space: pre-line;
+}
+
+/* ---------- Template: shared accent ---------- */
+.cv-paper {
+    --accent: #1e293b;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+.cv-paper .cv-header { border-bottom-color: var(--accent); }
+.cv-paper .cv-section h2 { color: var(--accent); }
+.cv-paper .cv-entry .institution { color: var(--accent); }
+
+/* ---------- Template: Modern (colored header block) ---------- */
+.cv-paper.tpl-modern .cv-header {
+    background: var(--accent);
+    border-bottom: none;
+    border-radius: 6px;
+    padding: 26px;
+}
+
+.cv-paper.tpl-modern .cv-header h1,
+.cv-paper.tpl-modern .cv-header h3,
+.cv-paper.tpl-modern .contact-info {
+    color: #ffffff;
+}
+
+.cv-paper.tpl-modern .cv-section h2 {
+    border-bottom: 2px solid var(--accent);
+}
+
+/* ---------- Template: Minimal (centered, light) ---------- */
+.cv-paper.tpl-minimal .cv-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-bottom: none;
+    gap: 14px;
+}
+
+.cv-paper.tpl-minimal .contact-info {
+    align-items: center;
+    text-align: center;
+    max-width: none;
+}
+
+.cv-paper.tpl-minimal .cv-links { justify-content: center; }
+
+.cv-paper.tpl-minimal .cv-header h1 { font-weight: 500; }
+
+.cv-paper.tpl-minimal .cv-section h2 {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+}
+
+/* ---------- Column wrappers (invisible except in Sidebar) ---------- */
+.cv-body,
+.cv-main,
+.cv-side {
+    display: contents;
+}
+
+/* ---------- Template: Sidebar (two columns) ---------- */
+.cv-paper.tpl-sidebar .cv-body {
+    display: grid;
+    grid-template-columns: 1fr 210px;
+    gap: 30px;
+    align-items: start;
+}
+
+.cv-paper.tpl-sidebar .cv-main,
+.cv-paper.tpl-sidebar .cv-side {
+    display: block;
+}
+
+.cv-paper.tpl-sidebar .cv-main .cv-section:first-child,
+.cv-paper.tpl-sidebar .cv-side .cv-section:first-child {
+    margin-top: 0;
+}
+
+.cv-paper.tpl-sidebar .cv-body { margin-top: 28px; }
+
+.cv-paper.tpl-sidebar .cv-side {
+    background: #f8fafc;
+    border-top: 3px solid var(--accent);
+    padding: 18px;
+}
+
+.cv-paper.tpl-sidebar .cv-side .cv-section { margin-top: 24px; }
+
+.cv-paper.tpl-sidebar .preview-skills {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.cv-paper.tpl-sidebar .preview-skill {
+    border: none;
+    padding: 0;
+    font-size: 12px;
+}
+
+/* ---------- Template: Compact (fits more on one page) ---------- */
+.cv-paper.tpl-compact { padding: 36px 40px; min-height: 0; }
+
+.cv-paper.tpl-compact .cv-header { padding-bottom: 14px; }
+.cv-paper.tpl-compact .cv-header h1 { font-size: 26px; }
+.cv-paper.tpl-compact .cv-header h3 { font-size: 14px; }
+.cv-paper.tpl-compact .cv-links { margin-top: 8px; }
+
+.cv-paper.tpl-compact .cv-section { margin-top: 16px; }
+.cv-paper.tpl-compact .cv-section h2 { margin-bottom: 8px; padding-bottom: 5px; }
+.cv-paper.tpl-compact .cv-section p { font-size: 12px; line-height: 1.5; }
+
+.cv-paper.tpl-compact .cv-entry { margin-bottom: 10px; }
+.cv-paper.tpl-compact .cv-entry h3 { font-size: 13px; }
+.cv-paper.tpl-compact .cv-entry-description { font-size: 11px; line-height: 1.45; margin-top: 3px; }
+.cv-paper.tpl-compact .referee-preview { margin-bottom: 10px; }
+
+/* Sidebar collapses to one column on phones */
+@media (max-width: 650px) {
+    .cv-paper.tpl-sidebar .cv-body { grid-template-columns: 1fr; }
+}
+
+/* ---------- Mobile / tablet Edit | Preview tabs ---------- */
+.mobile-tabs { display: none; }
+
+@media (max-width: 1100px) {
+    .mobile-tabs {
+        display: flex;
+        position: sticky;
+        top: 72px;
+        z-index: 90;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-tabs button {
+        flex: 1;
+        padding: 13px;
+        border: none;
+        border-bottom: 3px solid transparent;
+        background: none;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--muted);
+        cursor: pointer;
+    }
+
+    .mobile-tabs button[aria-pressed="true"] {
+        color: var(--primary);
+        border-bottom-color: var(--primary);
+    }
+
+    body:not(.show-preview) .preview-section { display: none; }
+    body.show-preview .editor { display: none; }
+}
+
+@media (max-width: 650px) {
+    .mobile-tabs { top: 64px; }
+}
+
+/* ---------- Print / PDF fixes ---------- */
+@media print {
+    /* Proper margins on EVERY page (before, only page 1 had padding) */
+    @page { size: A4; margin: 14mm; }
+
+    .cv-paper { padding: 0 !important; }
+
+    .preview-section { display: block !important; }
+    .mobile-tabs { display: none !important; }
+
+    /* Don't print placeholder text like "Your Name" */
+    .is-empty { display: none !important; }
+}
